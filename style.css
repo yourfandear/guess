@@ -1,0 +1,272 @@
+:root{
+  --pink:#ff2d78;
+  --pink2:#ff7fb0;
+  --ink:#220614;
+  --card:#ffffffc9;
+  --shadow: 0 20px 70px rgba(0,0,0,.18);
+  --ring: 0 0 0 4px rgba(255,45,120,.18);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  font-family: ui-rounded, system-ui, -apple-system, "Segoe UI", Arial;
+  color:var(--ink);
+  overflow:hidden;
+  background: radial-gradient(circle at 25% 20%, #fff0f6, #ffd1dc);
+}
+
+/* Floating hearts background */
+.bg-hearts::before{
+  content:"";
+  position:fixed;
+  inset:-60px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,45,120,.18) 0 12px, transparent 13px),
+    radial-gradient(circle at 70% 12%, rgba(255,127,176,.16) 0 10px, transparent 11px),
+    radial-gradient(circle at 20% 80%, rgba(255,45,120,.13) 0 14px, transparent 15px),
+    radial-gradient(circle at 90% 70%, rgba(255,127,176,.12) 0 16px, transparent 17px);
+  animation: drift 10s linear infinite;
+  pointer-events:none;
+}
+@keyframes drift{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(-12px, 10px)}
+  100%{transform:translate(0,0)}
+}
+
+.wrap{ width:min(640px, 92vw); padding: 14px; }
+
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.65);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: clamp(16px, 3vw, 22px);
+  box-shadow:var(--shadow);
+  text-align:center;
+  position: relative;
+}
+
+/* Title block */
+.title{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.msg{
+  font-weight: 900;
+  font-size: clamp(18px, 2.8vw, 22px);
+  letter-spacing: .2px;
+  background: linear-gradient(90deg, var(--pink), var(--pink2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1{
+  margin:0;
+  font-size: clamp(22px, 4.2vw, 36px);
+  line-height: 1.15;
+}
+
+/* GIF */
+.gifBox{ display:flex; justify-content:center; margin: 14px 0 14px; }
+.gifBox img{
+  width: min(360px, 86vw);
+  border-radius: 20px;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  animation: floaty 3.2s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+/* Arena */
+.arena{
+  position:relative;
+  width: 100%;
+  height: 88px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+  margin-top: 4px;
+  border-radius: 20px;
+  border: 1px dashed rgba(0,0,0,.10);
+  background: rgba(255,255,255,.55);
+}
+
+/* Buttons */
+.btn{
+  border:none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 900;
+  font-size: 18px;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active{ transform: scale(.98); }
+.btn:focus-visible{ outline:none; box-shadow: var(--shadow), var(--ring); }
+
+.yes{
+  background: linear-gradient(90deg, var(--pink), var(--pink2));
+  color:white;
+}
+.no{
+  background:#f1f3f5;
+  color:#111;
+}
+
+/* When NO starts running */
+.no.run{
+  position:absolute;
+  left: 65%;
+  top: 18px;
+}
+
+/* small footer */
+.tiny{
+  margin: 10px 0 0;
+  font-size: 12px;
+  opacity:.75;
+}
+
+/* Final overlay */
+.final{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background: rgba(0,0,0,.38);
+  padding: 18px;
+}
+.final.hidden{ display:none; }
+
+.finalCard{
+  width:min(560px, 94vw);
+  background:white;
+  border-radius: 30px;
+  padding: clamp(16px, 3vw, 22px);
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.finalCard h2{ margin:8px 0 8px; font-size: clamp(26px, 4vw, 36px); }
+.finalCard p{ margin:0 0 10px; opacity:.9; }
+
+.finalGif{
+  width:min(360px, 88vw);
+  border-radius: 20px;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  margin: 10px 0 14px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn.dark{ background:#111; color:white; }
+.btn.light{ background:#f1f3f5; color:#111; border:1px solid rgba(0,0,0,.08); box-shadow:none; }
+
+/* Enter screen (better looking) */
+.enterScreen{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  z-index: 9999;
+  cursor: pointer;
+  background: radial-gradient(circle at center, #ffd1dc, #ffb3c6);
+}
+.enterScreen.hidden{ display:none; }
+
+.enterCard{
+  width: min(520px, 92vw);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.75);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  text-align:center;
+}
+.enterTitle{
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 950;
+}
+.enterSub{
+  margin-top: 6px;
+  font-size: 16px;
+  opacity: .9;
+}
+.enterHint{
+  margin-top: 12px;
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--pink2));
+  color: white;
+  font-weight: 900;
+}
+
+/* Mobile tweaks */
+@media (max-width: 420px){
+  .arena{ height: 96px; }
+  .btn{ font-size: 17px; padding: 12px 16px; }
+}
+
+
+/* BTS mini gallery */
+/* BTS mini image strip */
+.bts-strip{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Individual BTS images */
+.bts-strip img{
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Subtle hover effect (desktop only) */
+.bts-strip img:hover{
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 12px 26px rgba(0,0,0,.28);
+}
+
+/* Mobile optimization */
+@media (max-width: 480px){
+  .bts-strip{
+    gap: 10px;
+  }
+  .bts-strip img{
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}

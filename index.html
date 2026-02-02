@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine 💘</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <div class="card">
+      <!-- Main text area -->
+      <div class="title">
+        <h1 id="q">Hey Shivani 💗</h1>
+        <h1 id="q">Will you be my Valentine? 💖</h1>
+        <div id="msg" class="msg"></div>
+      </div>
+
+      <div class="gifBox">
+        <img id="gif"
+          src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+          alt="cute gif">
+      </div>
+
+      <div class="arena" id="arena">
+        <button id="yes" class="btn yes">YES 😍</button>
+        <button id="no" class="btn no">NO 🙄</button>
+      </div>
+
+      <!-- small footer line -->
+      <p class="tiny">tap “NO” if you dare 😈</p>
+    </div>
+  </main>
+
+  <!-- Final screen -->
+  <div class="final hidden" id="final">
+    <div class="finalCard">
+      <h2>YAYYYY 💘</h2>
+      <p id="finalText">Best Decision Ever ❤️</p>
+
+      <img id="finalGif"
+        class="finalGif"
+        src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+        alt="yay gif">
+
+<div class="bts-strip">
+  <img src="a.jpg" alt="BTS group photo">
+  <img src="b.jpg" alt="BTS on field">
+  <img src="c.jpg" alt="BTS group stage">
+  <img src="d.webp" alt="BTS portrait">
+</div>
+
+
+
+
+<p class="bts-note">💜 BTS energy activated 💜</p>
+    </div>
+  </div>
+
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="WHEREISMYHUSBAND.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="enterScreen" class="enterScreen">
+    <div class="enterCard">
+      <div class="enterTitle">Tap anywhere 🎵</div>
+      <!-- <div class="enterSub">Tap anywhere to start the vibe 🎵</div> -->
+      <div class="enterHint">sound on 🔊</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
