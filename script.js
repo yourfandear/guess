@@ -25,7 +25,7 @@ const msgs = [
   "You’re testing me 😵‍💫",
   "Just click YES 😂",
   "I’m not allowing NO 😈",
-  "U r true BTS fan Plz dont inspect and click no🥺"
+  "U r true BTS fan Plz dont inspect and click no🙏"
 ];
 
 // GIF sequence (inside modal)
@@ -144,5 +144,6 @@ again.addEventListener("click", () => {
   resetNoVisible();
   yesLocked = false;
 });
+
 
 
