@@ -24,7 +24,7 @@ const msgs = [
   "Okay last chance 🥺👉👈",
   "You’re testing me 😵‍💫",
   "Just click YES 😂",
-  "I’m not allowing NO 😈"
+  "I’m not allowing NO 😈",
   "U r true BTS fan Plz dont inspect and click no🥺"
 ];
 
@@ -144,4 +144,5 @@ again.addEventListener("click", () => {
   resetNoVisible();
   yesLocked = false;
 });
+
 
